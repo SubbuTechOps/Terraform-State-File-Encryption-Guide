@@ -3,6 +3,31 @@
 ## Overview
 This guide demonstrates how to enable encryption at rest for Terraform state files using AWS S3 as the backend.
 
+flowchart TD
+    A[Start] --> B[Create KMS Key]
+    B --> C[Configure S3 Bucket]
+    C --> D[Enable Bucket Versioning]
+    D --> E[Configure Server-Side Encryption]
+    E --> F[Set Up DynamoDB for State Locking]
+    F --> G[Configure Backend in Terraform]
+    G --> H[Initialize Terraform]
+    H --> I{Encryption Enabled?}
+    I -->|Yes| J[State File Encrypted]
+    I -->|No| K[Check Configuration]
+    K --> G
+    J --> L[Verify Encryption Status]
+    L --> M[End]
+
+    subgraph "Security Layer"
+    N[IAM Policies]
+    O[Access Control]
+    P[Monitoring]
+    end
+
+    B ---|Requires| N
+    C ---|Managed by| O
+    L ---|Enable| P
+
 ## Configuration Steps
 
 ### 1. Backend Configuration
