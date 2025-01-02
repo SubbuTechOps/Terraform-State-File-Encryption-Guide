@@ -3,6 +3,7 @@
 ## Overview
 This guide demonstrates how to enable encryption at rest for Terraform state files using AWS S3 as the backend.
 
+```mermaid
 flowchart TD
     A[Start] --> B[Create KMS Key]
     B --> C[Configure S3 Bucket]
@@ -27,6 +28,7 @@ flowchart TD
     B ---|Requires| N
     C ---|Managed by| O
     L ---|Enable| P
+```
 
 ## Configuration Steps
 
