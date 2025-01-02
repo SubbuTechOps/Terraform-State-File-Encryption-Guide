@@ -146,4 +146,4 @@ The output should show the SSE configuration:
     "ServerSideEncryption": "aws:kms",
     "SSEKMSKeyId": "arn:aws:kms:us-west-2:ACCOUNT-ID:key/KEY-ID"
 }
-```e
+```
